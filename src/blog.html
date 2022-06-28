@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>ACEDUblog.com</title>
+</head>
+
+<body>
+    <div class="container-fluid fixed-top iphone ">
+        <header class="blog-header py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="col-2 pt-1">
+                    <button class="btn btn-dark" id="dark">Dark Mode</button>
+                    <button class="btn btn-light" id="light">Light Mode</button>
+                    <div class="showErrors"></div>
+                </div>
+                <div class="col-2 pt-1">
+                    <b>
+                        <div class="date" style="color: white;"></div>
+                    </b>
+                    <b>
+                        <div class="time" style="color: white;"></div>
+                    </b>
+                </div>
+                <div class="col-4 text-center">
+                    <a class="blog-header-logo text-light" href="#">ACEDUblog</a>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <form id="live-search" action="" class="search-form" method="post">
+                        <label>Search product</label>
+                        <input type="text" class="text-input" id="searchbox" value="" />
+                        <div id="result-count"></div>
+                    </form>
+                    <a class="btn btn-sm btn-outline-secondary" href="./signin.html">Sign up</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="nav-scroller py-1 mb-2">
+            <nav class="nav d-flex justify-content-between">
+                <a class="p-2 link-secondary" href="#world">World</a>
+                <a class="p-2 link-secondary" href="#sport">Sport</a>
+                <a class="p-2 link-secondary" href="#tech">Technology</a>
+                <a class="p-2 link-secondary" href="#business">Business</a>
+                <a class="p-2 link-secondary" href="#ent">Entertainment</a>
+                <a class="p-2 link-secondary" href="#health">Health</a>
+
+            </nav>
+        </div>
+    </div>
+
+    <!-- Body -->
+    <main class="container">
+        <!-- Carousel -->
+        <br><br><br><br><br><br><br>
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="height:200px;">
+                    <h1 class="d-block w-100" style="background-color: black;height: 200px;color: white;"> Enrol At
+                        Adroitsoft
+                        Computer
+                        Education,Ogba (ACEDU) today for the best coding lesson experience.</h1>
+
+                </div>
+                <div class="carousel-item" style="height:200px;">
+                    <div class="d-block w-100 img">
+                        <div class="card bg-dark text-yellow">
+                            <img src="" class="card-img1 d-block w-100" alt="...">
+                            <div class="card-img-overlay">
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item" style="height:200px;">
+                    <div class="hey" style="background-color: black;height: 200px;color: white;">
+                        <h1>Join Us At ACEDU</h1>
+                        <h1><b><strong>
+                                    <p>Have A mastery of web development in the space of
+                                        5 months in
+                                        a conducive environment
+                                    <h2><a href="https://acedu.camp/" class="acedu">Click here</a> to
+                                        enrol and also for more enquiries</h2>
+                                    </p>
+                                </strong></b></h1>
+
+
+                    </div>
+                </div>
+                <div class="carousel-item" style="height:200px;">
+                    <div class="d-block w-100 img">
+                        <div class="card bg-dark ">
+                            <img src="" class="card-img3 d-block w-100" alt="...">
+                            <div class="card-img-overlay kamal">
+                                <b style="color: white;" class="ohmars"> Wanna take a trip to Mars? <i
+                                        class="fa-solid fa-face-smiling-hands"></i></b>
+                                <br>
+                                <button class="btn btn-light mars0" id="mars0"><a href="./mars.html"></a></button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <h1 style="text-align: center;">News Flash</h1>
+        <div id="world">
+            <div class="row mb-2">
+                <div class="col-md-6">
+                    <div class="card mb-3 bg-light baby" style="max-width: 540px;">
+
+                        <div class="row g-0">
+                            <div class="col-md-4 ">
+                                <div class="showErrors"></div>
+                                <div class="img1"></div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="title"></h5>
+                                    <p class="card-text1">
+                                    <div class="showErrors"></div>
+                                    </p>
+                                    <p class="blog-post-meta">Authored by <span class="card-textA"></span></p>
+                                    <p class="card-text"><small class="text-muted"></small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3 bg-light baby" style="max-width: 540px;">
+
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div class="img2"></div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="title2"></h5>
+                                <p class="card-text2">
+                                <div class="showErrors"></div>
+                                </p>
+                                <p class="blog-post-meta">Authored by <span class="card-textB"></span></p>
+                                <p class="card-text"><small class="text-muted"></small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- News Flash -->
+        <div class="row g-5">
+            <div class="col-md-8">
+                <h3 class="pb-4 mb-4 fst-italic border-bottom">
+                    News Headlines
+                    <p class="blog"> Brought to you by <a href="https://acedu.camp/">ACEDU Developers</a></p>
+                </h3>
+                <span id="world">
+                    <article class="blog-post">
+                        <u>
+                            <h2 class="blog-post-title" style="text-align: center;">World News</h2>
+                        </u>
+
+                        <h2 class="news1"></h2>
+                        <p class="news1content"></p>
+                        <p class="blog-post-meta">Authored by <span class="author"></span></p>
+                        <div class="showErrors"></div>
+                        <hr>
+                        <h2 class="news2"></h2>
+                        <p class="news2content"></p>
+                        <p class="blog-post-meta">Authored by <span class="author2"></span></p>
+                        <div class="showErrors"></div>
+                        <hr>
+                        <h2 class="news3"></h2>
+                        <p class="news3content"></p>
+                        <p class="blog-post-meta">Authored by <span class="author3"></span></p>
+                        <div class="showErrors"></div>
+                </span>
+                <hr>
+                <hr>
+                <span id="business">
+                    <u>
+                        <h1 style="text-align: center;">Business News</h1>
+                    </u>
+                    <h2 class="business1"></h2>
+                    <p class="business1content"></p>
+                    <p class="blog-post-meta">Authored by <span class="authoruf"></span></p>
+                    <div class="showErrors"></div>
+                    <hr>
+                    <h2 class="business2"></h2>
+                    <p class="business2content"></p>
+                    <p class="blog-post-meta">Authored by <span class="authorgf"></span></p>
+                    <div class="showErrors"></div>
+                    <hr>
+                    <h2 class="business3"></h2>
+                    <p class="business3content"></p>
+                    <p class="blog-post-meta">Authored by <span class="authorff"></span></p>
+                    <div class="showErrors"></div>
+                </span>
+                <hr>
+                <hr>
+                <span id="sport">
+                    <u>
+                        <h1 style="text-align: center;">Sport News</h1>
+                    </u>
+                    <ul>
+                        <li>
+                            <h2 class="sport1"></h2>
+                            <p class="sport1content"></p>
+                            <p class="blog-post-meta">Authored by <span class="authorus"></span></p>
+                            <div class="showErrors"></div>
+                        </li>
+                        <hr>
+                        <li>
+                            <h2 class="sport2"></h2>
+                            <p class="sport2content"></p>
+                            <p class="blog-post-meta">Authored by <span class="authorgs"></span></p>
+                            <div class="showErrors"></div>
+                        </li>
+                        <hr>
+                        <li>
+                            <h2 class="sport3"></h2>
+                            <p class="sport3content"></p>
+                            <p class="blog-post-meta">Authored by <span class="authorfs"></span></p>
+                            <div class="showErrors"></div>
+                        </li>
+                        <hr>
+                    </ul>
+                </span>
+                <hr>
+                <span id="health">
+                    <u>
+                        <h1 style="text-align: center;">Health News</h1>
+                    </u>
+                    <h2 class="health1"></h2>
+                    <p class="health1content"></p>
+                    <p class="blog-post-meta">Authored by <span class="authoruh"></span></p>
+                    <div class="showErrors"></div>
+                    <hr>
+                    <h2 class="health2"></h2>
+                    <p class="health2content"></p>
+                    <p class="blog-post-meta">Authored by <span class="authorgh"></span></p>
+                    <div class="showErrors"></div>
+                    <hr>
+                    <h2 class="health3"></h2>
+                    <p class="health3content"></p>
+                    <p class="blog-post-meta">Authored by <span class="authorfh"></span></p>
+                    <div class="showErrors"></div>
+                    <hr>
+                </span>
+                <hr>
+                <span id="tech">
+                    <u>
+                        <h1 style="text-align: center;">Technology News</h1>
+                    </u>
+                    <h2 class="tech1"></h2>
+                    <p class="tech1content"></p>
+                    <p class="blog-post-meta">Authored by <span class="authorut"></span></p>
+                    <div class="showErrors"></div>
+                    <hr>
+                    <h2 class="tech2"></h2>
+                    <p class="tech2content"></p>
+                    <p class="blog-post-meta">Authored by <span class="authorgt"></span></p>
+                    <div class="showErrors"></div>
+                    <hr>
+                    <h2 class="tech3"></h2>
+                    <p class="tech3content"></p>
+                    <p class="blog-post-meta">Authored by <span class="authorft"></span></p>
+                    <div class="showErrors"></div>
+                    <hr>
+                </span>
+                <hr>
+                <span id="ent">
+                    <u>
+                        <h1 style="text-align: center;">Entertainment News</h1>
+                    </u>
+                    <h2 class="ent1"></h2>
+                    <p class="ent1content"></p>
+                    <p class="blog-post-meta">Authored by <span class="authorue"></span></p>
+                    <div class="showErrors"></div>
+                    <hr>
+                    <h2 class="ent2"></h2>
+                    <p class="ent2content"></p>
+                    <p class="blog-post-meta">Authored by <span class="authorge"></span></p>
+                    <div class="showErrors"></div>
+                    <hr>
+                    <h2 class="ent3"></h2>
+                    <p class="ent3content"></p>
+                    <p class="blog-post-meta">Authored by <span class="authorfe"></span></p>
+                    <div class="showErrors"></div>
+                    <hr>
+                </span>
+                </article>
+
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="position-sticky" style="top: 2rem;">
+                    <div class="p-4 mb-3 bg-light rounded soka">
+                        <h4 class="fst-italic">About ACEDUblog.com</h4>
+                        <p class="mb-0">ACEDUblog.com is a blog created by genius developers from Adroitsoft Computer
+                            Education.
+                            It is a growing project which we believe it will be improved as time goes on.</p>
+                    </div>
+
+                    <div class="p-4">
+                        <h4 class="fst-italic">Archives</h4>
+                        <p>To read more on the news feed, Click on any of the link. The News are arranged respectively
+                        </p>
+                        <ul>
+                            <h3>World News</h3>
+                            <li> <a href="" class="wnews1"></a></li>
+                            <li> <a href="" class="wnews2"></a></li>
+                            <li> <a href="" class="wnews3"></a></li>
+                            <div class="showErrors"></div>
+                            <hr>
+                            <h3>Business News</h3>
+                            <li> <a href="" class="bnews1"></a></li>
+                            <li> <a href="" class="bnews2"></a></li>
+                            <li> <a href="" class="bnews3"></a></li>
+                            <div class="showErrors"></div>
+                            <hr>
+                            <h3>Sport News</h3>
+                            <li> <a href="" class="snews1"></a></li>
+                            <li> <a href="" class="snews2"></a></li>
+                            <li> <a href="" class="snews3"></a></li>
+                            <div class="showErrors"></div>
+                            <hr>
+                            <h3>Health News</h3>
+                            <li> <a href="" class="hnews1"></a></li>
+                            <li> <a href="" class="hnews2"></a></li>
+                            <li> <a href="" class="hnews3"></a></li>
+                            <div class="showErrors"></div>
+                            <hr>
+                            <h3>Technology News</h3>
+                            <li> <a href="" class="tnews1"></a></li>
+                            <li> <a href="" class="tnews2"></a></li>
+                            <li> <a href="" class="tnews3"></a></li>
+                            <div class="showErrors"></div>
+                            <hr>
+                            <h3>Entertainment</h3>
+                            <li> <a href="" class="enews1"></a></li>
+                            <li> <a href="" class="enews2"></a></li>
+                            <li> <a href="" class="enews3"></a></li>
+                            <div class="showErrors"></div>
+                        </ul>
+                    </div>
+
+                    <div class="p-4">
+                        <h4 class="fst-italic">Elsewhere</h4>
+                        <ol class="list-unstyled">
+                            <li><a href="#">GitHub</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Facebook</a></li>
+                        </ol>
+                    </div>
+                    <div class="p-4 mb-3 bg-light rounded soka">
+                        <h4 class="fst-italic">Are You Bored? <i class="fa-regular fa-face-hand-yawn"></i></h4>
+                        <p class="mb-0"> <a class="btn btn-md btn-outline-secondary" href="./simon.html">Play Simon</a> <i
+                                class="fa-regular fa-face-laugh-wink"></i></button></a></p>
+                        <p>
+                        <h4>Incase you don't know what a simon game is;</h4>
+                        Simon is an electronic game of short-term memory skill invented by Ralph H. Baer and Howard J.
+                        Morrison,
+                        working for a toy design firm Marvin Glass and Associates,[1] with software programming by Lenny
+                        Cope. The
+                        device creates a series of tones and lights and requires a user to repeat the sequence. If the
+                        user
+                        succeeds, the series becomes progressively longer and more complex. Once the user fails or the
+                        time limit
+                        runs out, the game is over. The original version was manufactured and distributed by Milton
+                        Bradley and
+                        later by Hasbro after it took over Milton Bradley. Much of the assembly language code was
+                        written by
+                        Charles Kapps,[citation needed] who taught computer science at Temple University and also wrote
+                        one of the
+                        first books on the theory of computer programming. Simon was launched in 1978 at Studio 54 in
+                        New York
+                        City and was an immediate success, becoming a pop culture symbol of the 1970s and 1980s.</p>
+                        <br> _wikipedia.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br><br>
+        <footer style="text-align: center;">
+            <b>
+                <p>A Blog Created by Mohammed Kamaldeen, Metitiri Tega and Mukadam Samad.</p>
+            </b>
+            <b>
+                <p>Special Thanks and Reference goes to;</p>
+            </b>
+            <b class="blog-post-meta">CNN || BBC || NEWSApi || NASA || IPGeological || Mr Olamilekan || Abigail Aranuwa
+                || WikiPedia ||
+                Metitiri Tega
+                || ACEDU || Hubspot || Coding Artist || Programmable Web ||
+                https://css-tricks.com/css-link-hover-effects powered
+                by Digital Ocean </b>
+            <p>
+                Adroitsoft Computer Education &copy; 2022
+            </p>
+        </footer>
+
+    </main>
+</body>
+
+</html>
