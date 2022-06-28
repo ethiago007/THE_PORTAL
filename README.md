@@ -1,9 +1,9 @@
 # SITE NAME
 KAMAL MARTIAN WEATHER SERVICES
 # NAME OF CONTRIBUTORS
-MOHAMMED KAMALDEEN
-METITIRI TEGA
-MUKADAM SAMOD
+* MOHAMMED KAMALDEEN
+* METITIRI TEGA
+* MUKADAM SAMOD
 
 
 ## TECHNOLOGIES USED
@@ -65,6 +65,7 @@ https://github.com/ethiago007/kamal-martianWeather.git
 * ACEDU
 * Wikipedia
 * Mohammed Kamaldeen
+* Adetemi Fatima
 
 ## KNOWN BUGS
 * PAGE NAVIGATION - solved
