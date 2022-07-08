@@ -5,11 +5,19 @@ import './css/styles.css';
 import logo from '../asset/img/Logo.png';
 import logo1 from '../asset/img/download.jpg';
 import logo2 from '../asset/img/mars.jpg';
+import bike from '../asset/img/stock-bike.jpg';
+import biycle3 from '../asset/img/photo-1497340525489-441e8427c980.webp';
+import biycle4 from '../asset/img/photo-1589792332939-7a04ee18ed8b.webp';
+import sad1 from '../asset/img/photo-1602528190586-757f42d99447.webp';
+
 import Simon from './simon.js';
+import DateService from './date-service.js'
+import BikeService from './bike-service.js'
+import MarsService from './mars-service.js'
+import BlogService from './news-service.js';
 
 
-
-import BlogService from './question-service.js';
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // SIMON CODE
 let simon = new Simon;
@@ -49,7 +57,7 @@ $(".btn").click(function () {
 });
 
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 // To add img 
@@ -59,9 +67,11 @@ $(".card-img1").attr("src", logo);
 $(".card-img2").attr("src", logo1);
 $(".card-img3").attr("src", logo2);
 $(".marsimg").attr("src", logo2);
+$(".bicyle1").attr("src", biycle3);
+$(".bicyle2").attr("src", biycle4);
+$(".sad1").attr("src", sad1);
 
-
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // FOR DARK MODE
   $("button#dark").click(function () {
@@ -71,6 +81,7 @@ $(".marsimg").attr("src", logo2);
     $("b.ohmars").addClass("marsme");
     $(".baby").addClass("darkcard");
     $(".soka").addClass("darkcard");
+    $(".card").addClass("card-mode");
     $(".baby").removeClass("bg-light");
     $(".soka").removeClass("bg-light");
   });
@@ -81,12 +92,13 @@ $(".marsimg").attr("src", logo2);
     $("b.ohmars").removeClass("marsme");
     $(".baby").removeClass("darkcard");
     $(".soka").removeClass("darkcard");
+    $(".card").removeClass("card-mode");
     $(".baby").addClass("bg-light");
     $(".soka").addClass("bg-light");
   });
 
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -97,10 +109,82 @@ $(".marsimg").attr("src", logo2);
 $(window).on('load', function () {
   $('#js-preloader').addClass('loaded');
 });
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+// CODE FOR BIKE INDEX
+
+function displayBikes(response) {
+  console.log(response.bikes)
+  if (response.bikes) {
+    let output = buildBikeString(response);
+    $('.show-bikes').html(output);
+  } else {
+    $(".show-errors").text(`There was an error processing your request: ${response}`);
+  }
+}
+
+async function makeApiCall(location, color) {
+  const response = await BikeService.getBikes(location, color);
+  displayBikes(response);
+}
+
+function buildBikeString(response) {
+  let htmlToDisplay = [];
+  let manufactorers = [];
+  for (let i=0; i < response.bikes.length; i++) {
+    if (response.bikes[i].large_img !== null) {
+      htmlToDisplay.push(`<img src= ${response.bikes[i].large_img}  class='bike-img'>`);
+    } else {
+      htmlToDisplay.push(`<img src= ${bike} class="bike-img">`);
+    }
+    htmlToDisplay.push(`<p>Stolen location: ${response.bikes[i].stolen_location}</p>`);
+    htmlToDisplay.push(`<p>Colors: ${response.bikes[i].frame_colors}</p>`);
+    if (response.bikes[i].description !== null && response.bikes[i].description !== "") {
+      htmlToDisplay.push(`<p>Description: ${response.bikes[i].description}</p>`);
+    }
+    htmlToDisplay.push(`<p>Brand: ${response.bikes[i].manufacturer_name}</p>`);
+    htmlToDisplay.push(`<p>Serial number: ${response.bikes[i].serial}</p>`);
+    htmlToDisplay.push('<hr>');
+    manufactorers.push(response.bikes[i].manufacturer_name);
+  }
+  manufactorers.sort();
+  let map = {};
+  let max = manufactorers[0];
+  let maxCount = 1;
+  for (let i = 0; i < manufactorers.length; i++) {
+    let company = manufactorers[i];
+    if(map[company] === undefined) {
+      map[company] = 1;
+    }
+    else {
+      map[company] += 1;
+    }
+    if (map[company] > maxCount) {
+      max = company;
+      maxCount = map[company];
+    }
+  }
+  htmlToDisplay.unshift(`<p>The most commonly stolen from manufacturer is ${max} with ${maxCount} stolen bikes.</p><hr>`);
+  return htmlToDisplay.join('');
+}
+
+$(document).ready(function() {
+  $('#bike-location').click(function() {
+    let location = $('#location').val();
+    let color = $('#color').val();
+    makeApiCall(location, color);
+  });
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 // API CALLS AND PLACING
+
+
+/////////////////////////////////////
+//API NEWS
 function getElements(response) {
   if (response) {
     $('.title').text(`${response.articles[0].title}`);
@@ -162,6 +246,7 @@ function getUsFinance(response) {
     $('.business1content').html(`${response.articles[1].description}`);
     $('.authoruf').html(`${response.articles[1].author}`);
     $('.bnews1').html(` ${response.articles[1].url}`);
+    $('.bnewsimg1').html( ` <img src="${response.articles[1].urlToImage}" class="card-img-top" alt="...">` )
   } else {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }
@@ -172,6 +257,7 @@ function getGbFinance(response) {
     $('.business2content').html(`${response.articles[1].description}`);
     $('.authorgf').html(`${response.articles[1].author}`);
     $('.bnews2').html(` ${response.articles[1].url}`);
+    $('.bnewsimg2').html( ` <img src="${response.articles[1].urlToImage}" class="card-img-top" alt="...">` )
   } else {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }
@@ -182,6 +268,7 @@ function getFrFinance(response) {
     $('.business3content').html(`${response.articles[1].description}`);
     $('.authorff').html(`${response.articles[1].author}`);
     $('.bnews3').html(` ${response.articles[1].url}`);
+    $('.bnewsimg3').html( ` <img src="${response.articles[1].urlToImage}" class="card-img-top" alt="...">` )
   } else {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }
@@ -192,6 +279,7 @@ function getSportUs(response) {
     $('.sport1content').html(`${response.articles[1].description}`);
     $('.authorus').html(`${response.articles[1].author}`);
     $('.snews1').html(` ${response.articles[1].url}`);
+    $('.snewsimg1').html( ` <img src="${response.articles[1].urlToImage}" class="card-img-top" alt="...">` )
   } else {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }
@@ -202,6 +290,7 @@ function getSportGb(response) {
     $('.sport2content').html(`${response.articles[1].description}`);
     $('.authorgs').html(`${response.articles[1].author}`);
     $('.snews2').html(` ${response.articles[1].url}`);
+    $('.snewsimg2').html( ` <img src="${response.articles[1].urlToImage}" class="card-img-top" alt="...">` )
   } else {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }
@@ -212,6 +301,7 @@ function getSportFr(response) {
     $('.sport3content').html(`${response.articles[1].description}`);
     $('.authorfs').html(`${response.articles[1].author}`);
     $('.snews3').html(` ${response.articles[1].url}`);
+    $('.snewsimg3').html( ` <img src="${response.articles[1].urlToImage}" class="card-img-top" alt="...">` )
   } else {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }
@@ -222,6 +312,7 @@ function getHealthUs(response) {
     $('.health1content').html(`${response.articles[1].description}`);
     $('.authoruh').html(`${response.articles[1].author}`);
     $('.hnews1').html(` ${response.articles[1].url}`);
+    $('.hnewsimg1').html( ` <img src="${response.articles[1].urlToImage}" class="card-img-top" alt="...">` )
   } else {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }
@@ -232,6 +323,7 @@ function getHealthGb(response) {
     $('.health2content').html(`${response.articles[1].description}`);
     $('.authorgh').html(`${response.articles[1].author}`);
     $('.hnews2').html(` ${response.articles[1].url}`);
+    $('.hnewsimg2').html( ` <img src="${response.articles[1].urlToImage}" class="card-img-top" alt="...">` )
   } else {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }
@@ -242,6 +334,7 @@ function getHealthFr(response) {
     $('.health3content').html(`${response.articles[1].description}`);
     $('.authorfh').html(`${response.articles[1].author}`);
     $('.hnews3').html(` ${response.articles[1].url}`);
+    $('.hnewsimg3').html( ` <img src="${response.articles[1].urlToImage}" class="card-img-top" alt="...">` )
   } else {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }
@@ -252,6 +345,7 @@ function getTechUs(response) {
     $('.tech1content').html(`${response.articles[1].description}`);
     $('.authorut').html(`${response.articles[1].author}`);
     $('.tnews1').html(` ${response.articles[1].url}`);
+    $('.tnewsimg1').html( ` <img src="${response.articles[1].urlToImage}" class="card-img-top" alt="...">` )
   } else {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }
@@ -262,6 +356,7 @@ function getTechGb(response) {
     $('.tech2content').html(`${response.articles[1].description}`);
     $('.authorgt').html(`${response.articles[1].author}`);
     $('.tnews2').html(` ${response.articles[1].url}`);
+    $('.tnewsimg2').html( ` <img src="${response.articles[1].urlToImage}" class="card-img-top" alt="...">` )
   } else {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }
@@ -272,6 +367,7 @@ function getTechFr(response) {
     $('.tech3content').html(`${response.articles[1].description}`);
     $('.authorft').html(`${response.articles[1].author}`);
     $('.tnews3').html(` ${response.articles[1].url}`);
+    $('.tnewsimg3').html( ` <img src="${response.articles[1].urlToImage}" class="card-img-top" alt="...">` )
   } else {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }
@@ -282,6 +378,7 @@ function getEntUs(response) {
     $('.ent1content').html(`${response.articles[1].description}`);
     $('.authorue').html(`${response.articles[1].author}`);
     $('.enews1').html(` ${response.articles[1].url}`);
+    $('.enewsimg1').html( ` <img src="${response.articles[1].urlToImage}" class="card-img-top" alt="...">` )
   } else {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }
@@ -292,6 +389,7 @@ function getEntGb(response) {
     $('.ent2content').html(`${response.articles[1].description}`);
     $('.authorge').html(`${response.articles[1].author}`);
     $('.enews2').html(` ${response.articles[1].url}`);
+    $('.enewsimg2').html( ` <img src="${response.articles[1].urlToImage}" class="card-img-top" alt="...">` )
   } else {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }
@@ -302,10 +400,15 @@ function getEntFr(response) {
     $('.ent3content').html(`${response.articles[1].description}`);
     $('.authorfe').html(`${response.articles[1].author}`);
     $('.enews3').html(` ${response.articles[1].url}`);
+    $('.enewsimg3').html( ` <img src="${response.articles[1].urlToImage}" class="card-img-top" alt="...">` )
   } else {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }
 }
+
+////////////////////////////////////////
+
+//API DATE
 function getDate2(response) {
   if (response) {
     $('.date').text(`${response.date}`);
@@ -314,6 +417,10 @@ function getDate2(response) {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }
 }
+
+////////////////////////////////////////
+
+//API MARS
 function getMeMar(response) {
   if (response.photos) {
     $('.imgM').html(`<img src = ${response.photos[0].img_src} style="height:500px; width:600px;">`);
@@ -354,6 +461,10 @@ function getWeather(response) {
     $('.showErrors1').text(`There was an error: ${response.message}`);
   }
 }
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // API CALL TO HTML
 $(document).ready(function(){
@@ -439,39 +550,27 @@ BlogService.getUsEnt()
   .then(function (response) {
     getEntUs(response);
   });
-BlogService.getDate1()
+DateService.getDate1()
   .then(function (response) {
     getDate2(response);
   });
 
-  BlogService.getMars()
+  MarsService.getMars()
     .then(function (response) {
       getMeMar(response);
     });
-  BlogService.getAPhoto()
+  MarsService.getAPhoto()
     .then(function (response) {
       getElement(response);
     });
-  BlogService.pictureDay()
+  MarsService.pictureDay()
     .then(function (response) {
       getPicture(response);
     });
-  BlogService.getWeateher()
+  MarsService.getWeateher()
     .then(function (response) {
       getWeather(response);
     });
 })
 
-    //   $("#searchbox").keyup(function(){
-    //     let filter = $(this).val(), count = 0;
-    //     $(".blog-post article").each(function(){
-    //         if ($(this).text().search(new RegExp(filter, "i")) < 0) {
-    //             $(this).fadeOut();
-    //         } else {
-    //             $(this).show();
-    //             count++;
-    //         }
-    //     });
-    //     let numberItems = count;
-    //     $("#result-count").text("Number of Results = "+numberItems);
-    // });
+  
