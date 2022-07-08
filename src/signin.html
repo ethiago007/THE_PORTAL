@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="index.js"></script>
   <title>ACEDUblog.com</title>
 </head>
 <body class="signin">
   <main class="form-signin">
-    <form>
+    <form id="confirm">
       <img class="mb-4" src="" alt="" width="100" height="57">
       <h1 class="h3 mb-3 fw-normal">Please Register</h1>
       <div class="form-floating">
@@ -32,12 +33,12 @@
       </div>
 
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <input type="password" class="form-control" id="floatingPass" placeholder="Password">
         <label for="floatingPassword">Password</label>
       </div>
   
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingConfirmPassword" placeholder="Password">
+        <input type="password" class="form-control" id="floatingConfirmPass" placeholder="Password">
         <label for="floatingPassword">Confirm Password</label>
       </div>
 
@@ -48,7 +49,7 @@
       </div>
       
      
-      <a class="btn btn-md btn-outline-primary" href="./login.html">Register</a>
+      <button class = "btn btn-dark" type="submit">Register</button>
       <p>Already have an account?  <a class="btn btn-sm btn-outline-warning" href="./index.html">Sign up</a>
         <br> 
 
@@ -58,5 +59,9 @@
     </form>
    
   </main>
+  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Incorrect!</strong>Passwords do not match.
+  </div>
 </body>
 </html>
