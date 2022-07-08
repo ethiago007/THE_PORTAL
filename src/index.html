@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ACEDUblog.com</title>
   <link class="link" rel="icon" href="../asset/img/Logo.png">
+  <script src="index.js"></script>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <!-- Screen Onload Animation -->
 <div id="js-preloader" class="js-preloader">
@@ -22,7 +24,10 @@
 
 <body class="whole">
   
-
+  <div class="alert2">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Invalid Email Or Password.
+  </div>
 
  
 
@@ -30,16 +35,16 @@
 
 
       <main class="form-signin">
-        <form>
+        <form id="confirm2">
           <img class="mb-4" src="" alt="" width="300" height="57">
           <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
           <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+            <input type="email" class="form-control" id="floatingInput2" placeholder="name@example.com" required>
             <label for="floatingInput">Email address</label>
           </div>
           <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+            <input type="password" class="form-control" id="floatingPassword2" placeholder="Password" required>
             <label for="floatingPassword">Password</label>
           </div>
 
@@ -49,7 +54,7 @@
             </label>
           </div>
 
-          <a class="btn btn-md btn-outline-primary" href="./blog.html">Sign In</a>
+          <button class = "btn btn-dark" type="submit" >  Sign In</button>
         
           <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
 
